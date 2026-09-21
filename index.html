@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Практическая нутрициология — Мария Хамитова</title>
+<meta name="description" content="Наука в переводе — в то, что можно сделать уже сегодня. Бесплатные статьи и разборы про энергию, тягу к еде и вес.">
+<meta property="og:title" content="Практическая нутрициология">
+<meta property="og:description" content="Наука в переводе — в то, что можно сделать уже сегодня.">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Lora', Georgia, serif;
+  background:#EFE7DA;
+  color:#3B2A35;
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  padding:26px 14px 40px 14px;
+}
+
+.card {
+  max-width:580px; width:100%;
+  background:#FAF5EE;
+  border-radius:6px;
+  box-shadow:0 14px 44px rgba(70,52,30,0.16);
+  padding:48px 40px 38px 40px;
+  position:relative; overflow:hidden;
+}
+.grain { position:absolute; inset:0; pointer-events:none; opacity:0.5; }
+
+.head { text-align:center; }
+.mark { font-family:'Caveat', cursive; font-size:34px; color:#2E2029; line-height:1.15; }
+.rule { width:46px; height:3px; background:#C9A227; border-radius:2px; margin:15px auto 20px auto; }
+.tagline { font-size:16.5px; line-height:1.7; color:#5A4650; }
+.tagline em { color:#B07A1E; font-style:italic; }
+
+.social-row { margin-top:20px; }
+a.social {
+  display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#5A4650;
+  font-family:'Montserrat', sans-serif; font-size:12.5px; font-weight:600;
+  padding:9px 19px; border:1.4px solid #E0D2B4; border-radius:40px;
+  transition:background .15s ease, transform .15s ease;
+}
+a.social:hover { background:#F3ECDD; transform:translateY(-1px); }
+
+.section-label {
+  font-family:'Montserrat', sans-serif; font-size:10px; letter-spacing:2.6px;
+  text-transform:uppercase; color:#A99B84; font-weight:600;
+  text-align:center; margin:32px 0 16px 0; position:relative;
+}
+.section-label::before, .section-label::after {
+  content:''; position:absolute; top:50%; width:22%; height:1px; background:#E0D2B4;
+}
+.section-label::before { left:0; }
+.section-label::after { right:0; }
+
+/* бесплатная статья */
+a.item {
+  display:block; text-decoration:none;
+  background:#F3ECDD; border:1.4px solid #E0D2B4; border-radius:5px;
+  padding:16px 20px; margin-bottom:11px; color:#3B2A35;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+a.item:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(70,52,30,0.12); }
+a.item .lab {
+  font-family:'Montserrat', sans-serif; font-size:9px; letter-spacing:2.2px;
+  text-transform:uppercase; color:#B07A1E; font-weight:600;
+}
+a.item .ttl { font-size:16.5px; font-weight:600; margin-top:3px; line-height:1.42; }
+a.item .sub { font-size:13.5px; color:#8C7F6A; margin-top:5px; line-height:1.5; font-style:italic; }
+
+.soon {
+  background:#F5F1E6; border:1.4px dashed #DFD3B8; border-radius:5px;
+  padding:13px 20px; text-align:center;
+  font-size:13.2px; color:#A99B84; font-style:italic;
+}
+
+/* платные продукты */
+a.book {
+  display:block; text-decoration:none;
+  background:linear-gradient(140deg, #3B2A35 0%, #5C4535 100%);
+  border-radius:6px; padding:20px 22px; color:#FAF5EE; margin-bottom:11px;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+a.book:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(59,42,53,0.28); }
+a.book .lab {
+  font-family:'Montserrat', sans-serif; font-size:9px; letter-spacing:2.2px;
+  text-transform:uppercase; color:#E9C96A; font-weight:600;
+}
+a.book .ttl { font-size:17.5px; font-weight:600; margin-top:5px; line-height:1.35; }
+a.book .sub { font-size:13.4px; opacity:0.85; margin-top:6px; line-height:1.55; }
+a.book .price {
+  display:inline-block; margin-top:11px;
+  font-family:'Montserrat', sans-serif; font-size:12px; font-weight:600;
+  color:#2E2029; background:#E9C96A; padding:7px 16px; border-radius:30px;
+}
+
+a.keto {
+  display:block; text-decoration:none;
+  background:#EDE6D6; border:1.5px solid #D9C9A3; border-radius:6px;
+  padding:18px 22px; color:#3B2A35;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+a.keto:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(70,52,30,0.12); }
+a.keto .lab {
+  font-family:'Montserrat', sans-serif; font-size:9px; letter-spacing:2.2px;
+  text-transform:uppercase; color:#8A6A18; font-weight:600;
+}
+a.keto .ttl { font-size:16.5px; font-weight:600; margin-top:4px; }
+a.keto .sub { font-size:13.4px; color:#6B5560; margin-top:5px; line-height:1.5; }
+
+.foot {
+  margin-top:28px; text-align:center;
+  font-size:12.4px; line-height:1.7; color:#B3A88F; font-style:italic;
+}
+
+@media (max-width:580px) {
+  .card { padding:36px 22px 30px 22px; }
+  .mark { font-size:28px; }
+  .tagline { font-size:15.5px; }
+  a.item .ttl { font-size:15.5px; }
+  a.book .ttl { font-size:16px; }
+}
+</style>
+<!-- Umami analytics -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="65041eb6-d0fc-4741-939d-47b062be35d7"></script>
+</head>
+<body>
+  <div class="card">
+    <svg class="grain" viewBox="0 0 580 720" preserveAspectRatio="none">
+      <circle cx="42" cy="70" r="1" fill="#C9B896" opacity=".3"/>
+      <circle cx="190" cy="36" r=".8" fill="#C9B896" opacity=".25"/>
+      <circle cx="430" cy="96" r="1.1" fill="#C9B896" opacity=".28"/>
+      <circle cx="532" cy="220" r=".9" fill="#C9B896" opacity=".3"/>
+      <circle cx="88" cy="300" r="1" fill="#C9B896" opacity=".22"/>
+      <circle cx="300" cy="470" r=".8" fill="#C9B896" opacity=".26"/>
+      <circle cx="490" cy="392" r="1" fill="#C9B896" opacity=".24"/>
+      <circle cx="140" cy="188" r=".7" fill="#C9B896" opacity=".3"/>
+      <circle cx="360" cy="640" r=".9" fill="#C9B896" opacity=".22"/>
+      <circle cx="70" cy="580" r="1" fill="#C9B896" opacity=".25"/>
+    </svg>
+
+    <div class="head">
+      <div class="mark">Практическая<br>нутрициология</div>
+      <div class="rule"></div>
+      <p class="tagline">
+        Наука в переводе — в то, что можно сделать <em>уже сегодня</em>.<br>
+        Объясняю так, как я хотела бы, чтобы объяснили мне.
+      </p>
+      <div class="social-row">
+        <a class="social" href="https://www.instagram.com/mari_bodyhacking" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B07A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+            <circle cx="12" cy="12" r="4.2"/>
+            <circle cx="17.8" cy="6.2" r="1.2" fill="#B07A1E" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <div class="section-label">Читать бесплатно</div>
+
+    <a class="item" href="obed/">
+      <span class="lab">Бесплатно · 6 минут</span>
+      <div class="ttl">Тот же обед — другое тело</div>
+      <div class="sub">Почему энергия рушится в три часа дня — и десять минут, которые это чинят. Два переключателя целиком.</div>
+    </a>
+
+    <div class="soon">Скоро — новые разборы: сон, тяга к сладкому, гормоны</div>
+
+    <div class="section-label">Глубже</div>
+
+    <a class="book" href="https://payform.ru/54cBDNL/" target="_blank" rel="noopener">
+      <span class="lab">Книга + трекер для печати</span>
+      <div class="ttl">Дело не в том, что ты ешь</div>
+      <div class="sub">Все восемь переключателей, 30-дневный план и трекер. Без планов питания, без запретов, без силы воли.</div>
+      <span class="price">490 ₽ →</span>
+    </a>
+
+    <a class="keto" href="https://hamitovamaria.github.io/proketo/" target="_blank" rel="noopener">
+      <span class="lab">Следующий шаг · два тарифа</span>
+      <div class="ttl">PRO KETO</div>
+      <div class="sub">Когда «как» уже выстроено — разбор самой еды: механика кето без фанатизма, меню и расчёт БЖУ.</div>
+    </a>
+
+    <p class="foot">Материалы носят образовательный характер<br>и не являются медицинской рекомендацией.</p>
+  </div>
+</body>
+</html>
